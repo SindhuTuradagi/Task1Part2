@@ -1,0 +1,58 @@
+<section>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="card bg-white" style="border-radius: 15px;">
+          <div class="card-body bg-white p-5">
+            <h2 class="text-start bg-white text-success mb-5">Register</h2>
+
+            <form [formGroup]="registerForm" (ngSubmit)="register()" class="bg-white">
+              <div class="form-group bg-white">
+                <label class="bg-white" for="name">Name</label>
+                <input type="text" formControlName="name" class="form-control">
+                <div *ngIf="registerForm.controls['name'].touched && registerForm.controls['name'].invalid" class="text-danger">
+                  <div *ngIf="registerForm.controls['name'].errors?.['required']" class="bg-white">Name is required.</div>
+                </div>
+              </div>
+              
+              <div class="form-group bg-white">
+                <label class="bg-white" for="email">Email</label>
+                <input type="email" formControlName="email" class="form-control">
+                <div *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].invalid" class="text-danger">
+                  <div *ngIf="registerForm.controls['email'].errors?.['required']" class="bg-white">Email is required.</div>
+                  <div *ngIf="registerForm.controls['email'].errors?.['email']" class="bg-white">Invalid email format.</div>
+                </div>
+              </div>
+            
+              <div class="form-group bg-white">
+                <label class="bg-white" for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control">
+                <div *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].invalid" class="text-danger">
+                  <div *ngIf="registerForm.controls['password'].errors?.['required']" class="bg-white">Password is required.</div>
+                  <div *ngIf="registerForm.controls['password'].errors?.['minlength']" class="bg-white">Password should be at least 6 characters long.</div>
+                </div>
+              </div>
+
+              <div class="form-check d-flex justify-content-start mb-5 bg-white">
+                <input class="form-check-input me-2 bg-white" type="checkbox" value="" id="form2Example3cg" />
+                <label class="form-check-label bg-white" for="form2Example3g">
+                  I agree to all statements in <span class="text-success"><b class="bg-white">Terms, Policy, and Privacy</b></span> and
+                  <span class="text-success"><b class="bg-white">Fees</b></span>
+                </label>
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-success btn-block text-body" style="width: 100%;">Register</button>
+              </div>
+
+                <p class="text-start text-muted mt-5 mb-0 bg-white">Have already an account? <a href="#!"
+                    class="fw-bold text-success bg-white"><u class="bg-white">Login in</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+       </div>
+    </div>
+  </div>
+</section>
